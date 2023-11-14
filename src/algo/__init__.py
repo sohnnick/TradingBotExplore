@@ -1,1 +1,1 @@
-from .algo import *
+from .algo_logic import *

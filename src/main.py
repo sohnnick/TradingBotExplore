@@ -1,18 +1,16 @@
-import os
-import sys
-import time
-import requests
-import datetime
-from dateutil.relativedelta import relativedelta
-from configparser import ConfigParser
-
 from algo import *
 
 if __name__ == "__main__":
 
     # INITIALIZE Alpaca Client
     config = ConfigParser()
-    config.read('../config.ini')
+    
+    script_path = pathlib.Path(__file__).resolve().parent.parent
+    config_path = script_path / 'config.ini'
+
+    print(config_path)
+
+    config.read(config_path)
 
     ALPACA_API_KEY = config['APIKeys']['alpaca_key'] # initialize alpaca keys
     ALPACA_API_SECRET = config['APIKeys']['alpaca_secret']
